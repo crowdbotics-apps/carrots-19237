@@ -49,8 +49,22 @@ class Stores(models.Model):
     phone = models.CharField(max_length=256,)
     location = models.ForeignKey(
         "home.Location",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="stores_location",
+    )
+    category = models.ForeignKey(
+        "home.Category",
         on_delete=models.CASCADE,
         null=True,
         blank=True,
-        related_name="stores_location",
+        related_name="stores_category",
     )
+
+
+class Category(models.Model):
+    "Generated Model"
+    equipment = models.BooleanField()
+    coaching = models.BooleanField()
+    teams = models.BooleanField()

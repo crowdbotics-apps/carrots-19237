@@ -7,29 +7,54 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0002_load_initial_data'),
+        ("home", "0002_load_initial_data"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Location',
+            name="Location",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('address', models.CharField(max_length=256)),
-                ('city', models.CharField(max_length=256)),
-                ('state', models.CharField(max_length=256)),
-                ('zip', models.CharField(max_length=256)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("address", models.CharField(max_length=256)),
+                ("city", models.CharField(max_length=256)),
+                ("state", models.CharField(max_length=256)),
+                ("zip", models.CharField(max_length=256)),
             ],
         ),
         migrations.CreateModel(
-            name='Stores',
+            name="Stores",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('email', models.EmailField(max_length=254)),
-                ('phone', models.CharField(max_length=256)),
-                ('location', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='stores_location', to='home.Location')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("email", models.EmailField(max_length=254)),
+                ("phone", models.CharField(max_length=256)),
+                (
+                    "location",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="stores_location",
+                        to="home.Location",
+                    ),
+                ),
             ],
         ),
     ]
