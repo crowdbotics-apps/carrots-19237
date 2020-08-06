@@ -61,7 +61,7 @@ export class _Blank extends React.Component {
         borderTopWidth: 0,
         borderBottomWidth: 0,
         borderRadius: 0,
-        backgroundSize: "cover"
+        backgroundSize: "stretch"
       }}
     >
       <Button
